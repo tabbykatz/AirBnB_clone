@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
-""" Base Class """
+""" Base Class Module """
 import uuid
 from datetime import datetime
 from models import storage
 
 
-# time format
-tf = "%Y-%m-%dT%H:%M:%S.%f"
-
-
 class BaseModel:
     """ Base Class """
+    # time format
+    tf = "%Y-%m-%dT%H:%M:%S.%f"
 
     def __init__(self, *args, **kwargs):
         """ init a Base Instance """
