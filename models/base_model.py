@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ Base Class Module """
+
 import uuid
 from datetime import datetime
 from models import storage
