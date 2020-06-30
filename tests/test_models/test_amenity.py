@@ -44,6 +44,5 @@ class TestAmenity(unittest.TestCase):
     def test_attributes(self):
         """ test existence of attributes"""
         rat = Amenity()
-        #self.assertExists(rat.name)
 if __name__ == "__main__":
     unittest.main()
