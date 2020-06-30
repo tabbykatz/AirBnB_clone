@@ -4,11 +4,11 @@ import uuid
 from datetime import datetime
 from models import storage
 
+tf = "%Y-%m-%dT%H:%M:%S.%f"
+
 
 class BaseModel:
     """ Base Class """
-    # time format
-    tf = "%Y-%m-%dT%H:%M:%S.%f"
 
     def __init__(self, *args, **kwargs):
         """ init a Base Instance """
