@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """ File Storage module """
 from datetime import datetime
 import os
