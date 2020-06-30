@@ -8,6 +8,7 @@ import json
 import shlex
 import re
 
+
 class HBNBCommand(cmd.Cmd):
     """ Class for the console """
 
@@ -90,7 +91,7 @@ class HBNBCommand(cmd.Cmd):
         #ok so we have a class and an instance id
         # does key exist
         key = "{}.{}".format(terms[0], terms[1])
-        if key not in storage.all():#all().keys()?
+        if key not in storage.all():
             print("** no instance found **")
             return
 
@@ -103,7 +104,6 @@ class HBNBCommand(cmd.Cmd):
         terms[3] = terms[3].strip("\"")
         storage.all()[key].__dict__[terms[2]] = terms[3]
         storage.save()
-
 
     def do_show(self, line):
         """Prints an instance by id.\n"""
