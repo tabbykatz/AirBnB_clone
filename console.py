@@ -164,7 +164,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, line):
         """End-of-file input exits console.\n"""
-        print()
+        pass
         return True
 
     def do_quit(self, line):
