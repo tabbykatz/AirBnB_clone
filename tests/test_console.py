@@ -152,12 +152,12 @@ class TestCommand(unittest.TestCase):
         """empty line should print newline"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("\n")
-        string = "\n"
+        string = ""
         self.assertEqual(string, f.getvalue())
 
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("                  \n")
-        string = "\n"
+        string = ""
         self.assertEqual(string, f.getvalue())
 
     def tool_test_do_create(self, classname):
