@@ -173,7 +173,7 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         """Prints an empty line.\n"""
-        print()
+        pass
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
