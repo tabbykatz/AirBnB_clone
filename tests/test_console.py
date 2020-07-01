@@ -140,13 +140,13 @@ class TestCommand(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("EOF")
         msg = f.getvalue()
-        self.assertTrue(len(msg) == 1)
-        self.assertEqual("\n", msg)
+        self.assertTrue(len(msg) == 0)
+        self.assertEqual("", msg)
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("EOF garbage")
         msg = f.getvalue()
-        self.assertTrue(len(msg) == 1)
-        self.assertEqual("\n", msg)
+        self.assertTrue(len(msg) == 0)
+        self.assertEqual("", msg)
 
     def test_empty(self):
         """empty line should print newline"""
