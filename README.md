@@ -1,7 +1,7 @@
 # AirBnB clone - The console
 
 <p align="center">
-<img src="https://imgur.com/a/1n0MJe5">
+<img src="https://i.imgur.com/JOhaZ5m.png">
 </p>
 
 
