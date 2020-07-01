@@ -29,12 +29,14 @@ Count the number of instances of an object | ```(hbnb) <class>.count()```
 Update attributes of an object using an dictionary | ```(hbnb) <class>.update("<id>", {dictionary representation})```
 
 **Note**
+
 For updating attributes using a dictionary representation:
 * The class ID must be in double quotes in order for the dictionary to be parsed correctly
 * If the attribute value is a string, use the format: `'key': "value"`
 * If the attribute value is a number, use the format: `"key": value`
 
-Non-interactive mode example
+
+**Non-interactive mode example**
 
 ```bash
 $ echo "help" | ./console.py
