@@ -49,14 +49,6 @@ class TestBaseModel(unittest.TestCase):
         msg = "__init__() missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), msg)
 
-    def test_init_such_args(self):
-        """such args. much wow."""
-        self.resetStorage()
-        args = [i for i in range(1000)]
-        b = BaseModel(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
-        b = BaseModel(*args)
-        """need to do stuff here to test this"""
-
     def test_datetime_creation(self):
         """checking for datetime function"""
         rat = BaseModel()
@@ -85,7 +77,13 @@ class TestBaseModel(unittest.TestCase):
         ratstr = "[{}] ({}) {}".format("BaseModel",
                                        rat.id, rat.__dict__)
         self.assertEqual(rat.__str__(), ratstr)
-        """do stuff here """
+
+    def test_attr(self):
+        """do they exist, right data types?"""
+        rat = BaseModel()
+        self.assertTrue(isinstance(rat.id, str))
+        self.assertTrue(isinstance(rat.created_at, datetime))
+        self.assertTrue(isinstance(rat.updated_at, datetime))
 
     def test_to_dict(self):
         """send to dict"""
@@ -99,7 +97,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(thing["updated_at"], rat.updated_at.isoformat())
         self.assertEqual(thing["name"], rat.name)
         self.assertEqual(thing["age"], rat.age)
-
 
 if __name__ == '__main__':
     unittest.main()
