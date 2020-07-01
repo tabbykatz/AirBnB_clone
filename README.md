@@ -25,6 +25,13 @@ Show an object | ```(hbnb) show <class> <id>``` or ```(hbnb) <class>.show(<id>)`
 Destroy an object | ```(hbnb) destroy <class> <id>``` or ```(hbnb) <class>.destroy(<id>)```
 Show all objects, or all instances of a class | ```(hbnb) all``` or ```(hbnb) all <class>```
 Update an attribute of an object | ```(hbnb) update <class> <id> <attribute name> "<attribute value>"``` or ```(hbnb) <class>.update(<id>, <attribute name>, "<attribute value>")```
+Count the number of instances of an object | ```(hbnb) <class>.count()```
+Update attributes of an object using an dictionary | ```(hbnb) <class>.update(<id>, {dictionary representation})```
+
+** Note **
+For updating using a dictionary representation:
+* If the attribute value is a string, use the format: `'key': "value"`
+* If the attribute value is a number, use the format: `"key": value`
 
 Non-interactive mode example
 
