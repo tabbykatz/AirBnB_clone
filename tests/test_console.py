@@ -50,6 +50,13 @@ class TestCommand(unittest.TestCase):
         """tear it all down"""
         pass
 
+    def test_no_help_count(self):
+        """Tests the help command."""
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("help count")
+        string = '*** No help on count\n'
+        self.assertEqual(string, f.getvalue())
+
     def test_help(self):
         """help test in console"""
         with patch('sys.stdout', new=StringIO()) as f:
@@ -108,7 +115,14 @@ class TestCommand(unittest.TestCase):
         string = 'Update an instance based on class name and id.\n\n'
         self.assertEqual(string, f.getvalue())
 
-    def test_do_quit(self):
+    def test_junkentry(self):
+        """ enter a non-command """
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("yoyoyo")
+        string = ""
+        self.assertEqual(string, f.getvalue())
+
+    def test_quit(self):
         """test for quitting"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("quit")
@@ -121,7 +135,7 @@ class TestCommand(unittest.TestCase):
         self.assertTrue(len(msg) == 0)
         self.assertEqual("", msg)
 
-    def test_do_EOF(self):
+    def test_EOF(self):
         """test for using EOF"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("EOF")
@@ -134,7 +148,7 @@ class TestCommand(unittest.TestCase):
         self.assertTrue(len(msg) == 1)
         self.assertEqual("\n", msg)
 
-    def test_emptyline(self):
+    def test_empty(self):
         """empty line should print newline"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("\n")
