@@ -357,6 +357,31 @@ class TestCommand(unittest.TestCase):
         self.assertEqual(msg, "** instance id missing **")
 
         with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("Amenity.destroy()")
+        msg = f.getvalue()[:-1]
+        self.assertEqual(msg, "** instance id missing **")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("State.destroy()")
+        msg = f.getvalue()[:-1]
+        self.assertEqual(msg, "** instance id missing **")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("Place.destroy()")
+        msg = f.getvalue()[:-1]
+        self.assertEqual(msg, "** instance id missing **")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("Review.destroy()")
+        msg = f.getvalue()[:-1]
+        self.assertEqual(msg, "** instance id missing **")
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("City.destroy()")
+        msg = f.getvalue()[:-1]
+        self.assertEqual(msg, "** instance id missing **")
+
+        with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd('BaseModel.destroy("8675309")')
         msg = f.getvalue()[:-1]
         self.assertEqual(msg, "** no instance found **")
