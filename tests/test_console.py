@@ -3,6 +3,7 @@
 
 from console import HBNBCommand
 from models.engine.file_storage import FileStorage
+from models import storage
 import unittest
 import datetime
 from unittest.mock import patch
@@ -305,6 +306,17 @@ class TestCommand(unittest.TestCase):
             HBNBCommand().onecmd("destroy BaseModel 8675309")
         msg = f.getvalue()[:-1]
         self.assertEqual(msg, "** no instance found **")
+
+    def test_destroy_ids(self):
+        """destroy ids for every class"""
+        for classname in self.classes().items():
+            with patch('sys.stdout', new=StringIO()) as f:
+                HBNBCommand().onecmd("create {}".format(classname))
+            uid = f.getvalue()[:-1]
+            with patch('sys.stdout', new=StringIO()) as f:
+                HBNBCommand().onecmd('{}.destroy("{}")'.format(classname, uid))
+            key = "{}.{}".format(classname, uid)
+            self.assertNotIn(key, storage.all().keys())
 
     def tool_test_destroy_adv(self, classname):
         """a tool to test destroy further"""
