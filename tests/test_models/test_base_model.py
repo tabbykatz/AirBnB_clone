@@ -71,6 +71,18 @@ class TestBaseModel(unittest.TestCase):
         rat.save()
         self.assertTrue(abs(rat.updated_at > rat.created_at))
 
+    def test_save_time(self):
+        """save updates time"""
+        rat = BaseModel()
+        the_time = rat.updated_at
+        time.sleep(0.001)
+        rat.save()
+
+        self.assertNotEqual(the_time, rat.updated_at)
+
+        with open("file.json", "r") as f:
+            self.assertIn(rat.to_dict(), json.loads(f.read()).values())
+
     def test_str_method(self):
         """test the str method"""
         rat = BaseModel()
