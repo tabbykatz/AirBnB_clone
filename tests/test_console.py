@@ -318,6 +318,17 @@ class TestCommand(unittest.TestCase):
             key = "{}.{}".format(classname, uid)
             self.assertNotIn(key, storage.all().keys())
 
+    def test_destroy_ids_adv(self):
+        """more destroy ids"""
+        for classname in self.classes().items():
+            with patch('sys.stdout', new=StringIO()) as f:
+                HBNBCommand().onecmd("create {}".format(classname))
+            uid = f.getvalue()[:-1]
+            with patch('sys.stdout', new=StringIO()) as f:
+                HBNBCommand().onecmd('destroy {} {}'.format(classname, uid))
+            key = "{}.{}".format(classname, uid)
+            self.assertNotIn(key, storage.all().keys())
+
     def tool_test_destroy_adv(self, classname):
         """a tool to test destroy further"""
         with patch('sys.stdout', new=StringIO()) as f:
